@@ -1,0 +1,73 @@
+# when designing a program make a flowchart of program flow before inputs and outputs
+# pronouns
+  # transfer pronoun in books from he/she to they
+  # how do i architect this?
+  # add each use case to check to the workflow
+
+# ruby-lang.org - website for Ruby programming language - the dictionary
+# batsov github: the style guide
+# learn to program ruby & eloquent ruby - text book
+# ruby quiz & ruby koans - assignments
+# "tutoring" now at ford food and drink - on powell - wed 6ish - 8p
+
+# for 7/16
+  # finish procs & blocs chpt L2PrgRub
+  # start looking at the methods in the base [built-in] classes - ruby-lang.org
+  # they are built in the way i want to build my methods
+  # CG will email me links for next steps
+    # rspec - test framework for Ruby
+      # has prewritten curriculum
+      # code challenges for jobs will be in rspec
+
+# for 7/23
+  # for success in a ruby career - in order of importance
+    # need ruby
+    # need rspec or capybara
+    # rails
+
+  # things to do:
+  # ruby gems that allow to switch between ruby versions that i install
+    # rbenv - ruby environment
+      # older - almost legacy
+      # mostly in environments that they haven't updated their ruby gems
+      # created all the libraries for rvm in this
+      # less functionality than rvm and chruby
+    # rvm - ruby virtual machine
+      # rvm.io
+      # command for switching - rvm ruby <version>
+    # chruby - change ruby
+      # sometimes doesn't work on mac, only sometimes
+      # gem install chruby
+      # command for switching - chruby <version>
+
+  # install newest version of ruby so i can work in the newest environment
+  # chruby is easier to use, but may give me problems - start there.
+
+  # need chruby or rvm before installing rspec
+    # rspec
+      # 1st 2 or 3 modules are review
+
+  # start looking at YAML
+
+  # and get through chapter 4 & 5
+
+# for 7/30
+  # install bundler - don't install rails
+
+  # rspec install and then try to do the modules until i get stuck
+  # i may have problems during the install
+  # will most assuredly have problems during the setup of the modules
+    # look at directory tree!!!!! files probably in wrong place
+
+  # eloquent ruby chapter 7
+
+
+
+
+
+
+
+
+
+
+
