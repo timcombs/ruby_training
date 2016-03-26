@@ -263,7 +263,7 @@ puts ''
 yoda_string = 'For my ally is the Force, and a powerful ally it is.'
 p yoda_string
 p yoda_string.gsub(/(?<=powerful )ally/, 'friend')
-
+p yoda_string.gsub(/(?<!powerful )ally/, 'friend')
 
 
 

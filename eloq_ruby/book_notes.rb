@@ -754,7 +754,7 @@
         # positive lookahead use ?=
         # negative lookahead use ?!
         # positive lookbehind use ?<=
-        # positive lookbehind use ?<!
+        # negative lookbehind use ?<!
 
       # scan returns all matches for the regex
       # thus:
@@ -789,7 +789,109 @@
       # p yoda_string.gsub(/(?<=powerful)ally/, 'friend')
       # returns "For my ally is the Force, and a powerful friend it is."
 
-      # p
+      # pattern to substitute match when its NOT followed by another pattern
+      # uses zero-width, negative lookbehind assertion
+      # thus:
+      # p yoda_string.gsub(/?<!powerful )ally/, "friend")
+      # "For my friend is the force, and a powerful ally it is."
+
+    # RegEx Behaviors
+      # 3 distinct controllable behaviors: greedy, lazy, possessive
+      # default behavior is greedy
+
+      # Quantifiers
+        # tell the regex engines how many times characters should appear in your string
+        # determine what behavior regex exhibits
+
+      # Greedy Quantifiers
+        # characters need to appear at least one time, can appear many
+        # try to match as much of string as possible
+        # if that doesn't work it backs up one character and tries again
+        # repeats process until there are no more characters to test
+        # uses MAXIMUM effort for MAXIMUM return
+        # tries as many ways as it can to find a match and returns as many characters that could possibly be part of a match
+        # + is a greedy quantifier
+
+      # /.+/ matches any character appearing at least once, guarantees a single character will be there
+      # /.+time/ matches any character appearing at least once followed by the word "time"
+      # thus:
+      # trek_string = 'There\'s no time to talk about time we don't have the time'
+      # /.+time/.match(trek_string)
+      # matches the entire string cuz it matches the .+ first
+      # then tries to find a match for time
+      # starts beyond the end of the string
+      # then backtracks one character at a time looking for a match
+      # finds a match and returns the whole match, in this case the entire string
+
+      # Backtracking
+        # greedy quantifiers always backtrack
+        # if entire string doesn't match, the regex will try as many ways as possible to find a match
+        # has to keep track of the ways it tried to find a match
+        # greedy quantifiers eat up system resources eventually
+        # Oniguruma Ruby regex engine has some optimizations that make backtracking quicker to use less resources
+
+      # Lazy Quantifiers
+        # more contained match, uses way less resources
+        # sometimes known as a reluctant quantifier
+        # starts at beginning of string tries to match very 1st character
+        # if it doesn't find a match the it goes the next character
+        # as last resort it will grab whole string and try to find a match
+        # uses MINIMUM effort for MINIMUM return
+        # once it finds a match it returns what it has
+        # put ? after greedy quantifier to make it lazy
+        # +? is a lazy quantifier
+
+      # /.+?time/  # is lazy quantifier
+      # thus:
+      # /.+?time/.match(trek_string)
+      # returns "There's no time"
+      # started at beginning of string and once it found time it returned that part of the string
+      # much less backtracking, way fewer resources
+
+      # Possessive Quantifiers
+        # for matching as many characters as possible with few resources
+        # uses MINIMUM effort for MAXIMUM return
+        # either they match on the first try or they fail
+        # all or nothing
+        # like greedy, grab the entire string and try to match
+        # if no match they DON'T backtrack
+        # so they fail fast and use very very few resources
+        # best for small regular expressions
+        # especially for small subExpressions nested with larger ones
+        # USE WITH CAUTION!!
+        # put + sign after greedy quantifier to make it possessive
+        # ++ is a possessive quantifier
+
+      # /.++time/   # is possessive quantifier
+      # thus:
+      # /.++time/.match(trek_string)
+      # returns nil
+      # why? because there is no backtracking
+      # it matches the whole string - the .+
+      # then it looks for time beyond the string
+      # can't find it, can't backtrack so it fails
+
+  # Regex best practices
+    # regex get complex quickly
+    # they are subprograms in another language you put in Ruby code
+    # helps to write in chunks
+    # helps to think in terms of TDD - red. green. refactor.
+
+    # e.g. if writing a lookbehind
+      # write the main pattern you will be matching
+      # check to make sure it works
+      # then write the lookbehind
+      # check to make sure it works on its own
+      # once they both work then combine them
+      # check to make sure they work together
+
+
+
+
+
+
+
+
 
 
 
