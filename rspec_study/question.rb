@@ -9,6 +9,7 @@
 
 # all three types of heredocs work the same when i run the simple code.
 # is this just a style issue then?
+### stylistics
 
 # i would like to understand how you pass through the logic of this code
 # don't need to know what it all does, just how the boolean works
@@ -27,8 +28,8 @@
 # array3.delete_if { |x| x < 0 }
 # p array3
 # puts ''
-# would pass as argument into a class which makes it not mutable
-# or stick it in a database or sometimes a yaml file
+### would pass as argument into a class which makes it not mutable
+### or stick it in a database or sometimes a yaml file
 
 # A* matches zero or more A's - does this mean any single character AND any single character followed by an infinite numbers of A's?
 
